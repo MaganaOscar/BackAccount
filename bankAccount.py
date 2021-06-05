@@ -25,9 +25,15 @@ class BankAccount:
         # your code here
         self.balance = self.balance + self.balance*self.int_rate
         return self
+    @classmethod
+    def all_balances(cls):
+        print(f"Accounts: {len(cls.accounts)}")
+        for account in cls.accounts:
+            print(f"Balance: {account.balance}\nInterest Rate: {account.int_rate}")
 
 account1 = BankAccount(0.01)
 account2 = BankAccount(0.02)
 account1.deposit(100).deposit(200).deposit(400).withdraw(100).yield_interest().display_account_info()
 account2.deposit(100).deposit(200).withdraw(400).withdraw(100).yield_interest().display_account_info()
 print(BankAccount.accounts[0].balance)
+BankAccount.all_balances()
